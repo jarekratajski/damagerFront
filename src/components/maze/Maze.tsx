@@ -11,6 +11,8 @@ export const Maze: FunctionComponent<GameProps> = props => {
 
     function getObjectsInCell(x:number, y:number): GameObject[] {
         const toDisplay = props.state.view.objects.filter( obj => obj.location.x == x && obj.location.y == y);
+        // const sorted = toDisplay.sort( (a,b)=>b.effectiveStats?.life - a.effectiveStats?.life);
+
         return toDisplay;
     }
 
