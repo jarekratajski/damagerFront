@@ -1,3 +1,4 @@
+import {GameService} from "../services/GameService";
 
 export interface Cell {
     readonly doorUp: boolean;
@@ -15,6 +16,9 @@ export interface Maze {
 }
 
 export interface GameObject {
+    readonly location: Coord
+    readonly name:string
+    readonly effectiveStats?: StatsView
 
 }
 
@@ -24,6 +28,48 @@ export interface GameView {
 }
 
 
-export interface GameProps {
+export interface GameState {
     readonly view: GameView
+    readonly player: OwnPlayerView
 }
+
+
+export interface GameProps {
+    readonly state: GameState
+    readonly setState: (g:GameState) => void;
+    readonly service: GameService;
+}
+
+export interface Coord {
+    readonly x:number
+    readonly y:number
+}
+
+export interface PlayerView {
+    readonly location: Coord
+    readonly name: string
+    readonly effectiveStats: StatsView,
+    readonly alive: boolean
+}
+export interface OwnPlayerView {
+    readonly name: string
+    readonly token: string,
+    readonly gameObject: PlayerView,
+    readonly commands: Array<Command>
+}
+
+export interface StatsView {
+    readonly strength: number
+    readonly dexterity: number
+    readonly health: number
+    readonly life:number
+}
+
+
+
+export type MoveCommand = {
+    "@type" : "MoveCommand",
+    direction: string;
+}
+
+export type Command = MoveCommand

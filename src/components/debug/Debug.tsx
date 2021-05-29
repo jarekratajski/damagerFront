@@ -8,11 +8,15 @@ export const Debug: FunctionComponent<AppProps> = _ => {
     function refreshGame() {
         service.getView();
     }
+    // function refreshPlayer() {
+    //     service.getPlayerView();
+    // }
 
     return <aside>
         <h2>Debug</h2>
         <p>
             <button onClick={_ => refreshGame()}>refresh view</button>
+            {/*<button onClick={_ => refreshPlayer()}()}>refresh objects</button>*/}
         </p>
     </aside>;
 }
