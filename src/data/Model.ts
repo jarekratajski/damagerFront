@@ -55,7 +55,15 @@ export interface OwnPlayerView {
     readonly name: string
     readonly token: string,
     readonly gameObject: PlayerView,
-    readonly commands: Array<Command>
+    readonly commands: Array<Command>,
+    readonly logs: Array<CombatResultView>
+}
+
+export interface CombatResultView {
+    readonly attacker: String
+    readonly defender: String
+    readonly hit: number
+    readonly defenderDodged: Boolean
 }
 
 export interface StatsView {
