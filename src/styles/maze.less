@@ -18,14 +18,19 @@
    background: rgb(0,0,0);
 };
 
+.wallStyle() {
+   background: rgb(0,0,0);
+   background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(3,25,3,1) 95%, rgba(0,0,0,1) 100%);
+}
 
 @cellHeight: 160px;
 @cellWidth: 160px;
 @wallWidth: 10px;
 .maze {
-   min-height: 600px;
+   min-height: 500px;
    width: 100%;
-
+   overflow: auto;
+   font-size: 12px;
 
    > .row {
       >.cell {
@@ -55,6 +60,7 @@
                width: @wallWidth;
                height: @cellHeight;
                .verticalDoor();
+
             }
             &.right{
                content: "";
@@ -93,6 +99,7 @@
                width: @wallWidth;
                height: @cellHeight;
                .verticalWall();
+               .wallStyle();
             }
             &.right{
                content: "";
@@ -102,6 +109,7 @@
                width: @wallWidth;
                height: @cellHeight;
                .verticalWall();
+               .wallStyle();
             }
             &.up {
                content: "";
@@ -111,6 +119,7 @@
                width: @cellWidth;
                height: @wallWidth;
                .horizontalWall();
+               .wallStyle();
             }
             &.down{
                content: "";
@@ -120,10 +129,13 @@
                width: @cellWidth;
                height: @wallWidth;
                .horizontalWall();
+               .wallStyle();
             }
          }
-
-
       }
    }
+}
+
+.row {
+   height: @cellHeight;
 }

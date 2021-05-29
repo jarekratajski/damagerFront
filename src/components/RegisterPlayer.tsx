@@ -13,7 +13,7 @@ export const RegisterPlayer: FunctionComponent<GameProps> = props => {
         );
     }
 
-    return <div>
+    return <div className ={"newPlayer"}>
         <form>
             <input type={"text"} value={wantedName} onChange={event => setWantedName(event.currentTarget.value)}/>
         </form>

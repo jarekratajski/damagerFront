@@ -27,15 +27,15 @@ const PlayerView : FunctionComponent<GameProps> = props => {
     }
     const alive = player?.gameObject.alive;
     const playerState = alive ? "" : "(Dead)";
-
+    const commands  = player?.commands.map (cmd => cmd.direction).join(",");
     return <div className={"playerView"} tabIndex={-1} onKeyDown={e => onKeyMove(e.key)}>
         <h3>{player?.name} {playerState}</h3>
 
         <ul>
-            <li>s: {player?.gameObject.effectiveStats.strength}</li>
-            <li>d: {player?.gameObject.effectiveStats.dexterity}</li>
-            <li>h: {player?.gameObject.effectiveStats.health}</li>
-            <li>l: {player?.gameObject.effectiveStats.life}</li>
+            <li>strentght: {player?.gameObject.effectiveStats.strength}</li>
+            <li>dexterity: {player?.gameObject.effectiveStats.dexterity}</li>
+            <li>health: {player?.gameObject.effectiveStats.health}</li>
+            <li>life: {player?.gameObject.effectiveStats.life}</li>
         </ul>
         <div className={"controls"}>
             <button className = {"up"} onClick={_=>move("up")} disabled={!alive}>up</button>
@@ -44,6 +44,7 @@ const PlayerView : FunctionComponent<GameProps> = props => {
             <button  className = {"down"} onClick={_=>move("down")} disabled={!alive}>down</button>
 
         </div>
+        <h4>{commands}</h4>
     </div>;
 };
 

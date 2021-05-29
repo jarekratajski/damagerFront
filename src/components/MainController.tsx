@@ -37,7 +37,7 @@ export const MainController: FunctionComponent<any> = _ => {
         const interval = setInterval(()=> {
             console.log("refreshing");
             refreshAll();
-        }, 2000);
+        }, 1100);
         return () => clearInterval(interval);
     },[state.player]);
 
